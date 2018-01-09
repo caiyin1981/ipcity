@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="MCN,MPN,自媒体,新媒体,媒体,勾画,勾画互动,平台">
+    <meta name="description" content="IP·City MCN/MPN是上海勾画网络科技有限公司（简称勾画互动）运营和管理的互联网新内容产业孵化平台3.0">
+    <meta name="author" content="gouhua">
+    <meta itemprop="name" content="IP·City">
+    <meta itemprop="description" content="打造最强IP">
+    <meta itemprop="image" content="">
+    
+    <title>IP·City | 打造最强IP</title>
+    
+    <link href="//www.ghplat.com:8099/ipcity/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<!-- core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.transitions.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/mousescroll.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=imKM0mOZxKRRXXmCGF8QC6UCiQ2qBBQo"></script>
+    
+		<script type="text/javascript">
+			function applyfor(){
+				if (checkinput()==0) {
+					return;
+				}
+				if (checkemail()==0) {
+					return;
+				}
+				if (checkmobile()==0) {
+					return;
+				}
+				if (checkurl()==0) {
+					return;
+				}
+				
+				$.ajax({
+					cache: false,
+					type : "post",
+					url  : "applyfor.jsp",
+			  	data : $('#main-contact-form').serialize(),
+			  	async: false,
+			  	error: function(request) {  
+        		alert("提交失败");
+    			},  
+    			success: function(data) {  
+	  	  	  alert("提交成功，我们会尽快和您联系");
+	  	  	  $('#main-contact-form').get(0).reset();
+    			}
+				});
+			}
+			
+			
+			function checkinput(){
+				var flag=0;
+				var name = document.getElementById("name").value;
+				var email = document.getElementById("email").value;
+				var mobile = document.getElementById("mobile").value;
+				var demo = document.getElementById("demo").value;
+				
+				if (name==null||name=='') {
+					alert("姓名不能为空");
+					document.getElementById('name').focus();
+				}
+				else if (email==null||email=='') {
+					alert("Email不能为空");
+					document.getElementById('email').focus();
+				}
+				else if (mobile==null||mobile=='') {
+					alert("手机号码不能为空");
+					document.getElementById('mobile').focus();
+				}
+				else if (demo==null||demo=='') {
+					alert("作品地址不能为空");
+					document.getElementById('demo').focus();
+				}
+				else {
+					flag=1;
+				}
+				
+				return flag;
+				
+			}
+			
+			function checkmobile() {
+				var flag=0;
+				var re = /^1\d{10}$/;
+				var mobile = document.getElementById("mobile").value;
+				
+				if (re.test(mobile)) {
+					flag=1;
+				}
+				else {
+					alert("手机号码格式错误");
+					document.getElementById('mobile').focus();
+				}
+				
+				return flag;
+			}
+			
+			function checkemail() {
+				var flag=0;
+				var email = document.getElementById("email").value;
+
+				var re=/^(.+)@(.+)$/;
+				var ra=email.match(re);
+				if (ra==null) {
+					alert("电子邮件地址格式错误");
+					document.getElementById('email').focus();
+				}
+				else {
+					flag=1;
+				}
+				
+				return flag;
+				
+			}
+			
+			function checkurl() {
+				var flag=0;
+				var demo = document.getElementById("demo").value;
+				
+				if (demo.substr(0,7)=="http://") {
+					flag=1;
+				}
+				else {
+					alert("作品地址格式错误");
+					document.getElementById('demo').value="http://";
+					document.getElementById('demo').focus();
+				}
+				
+				return flag;
+				
+			}
+			
+			function IsMobile(){
+				var mobileAgent = new Array("iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire");
+				var browser = navigator.userAgent.toLowerCase(); 
+				var isMobile = false; 
+				for (var i=0; i<mobileAgent.length; i++){
+					if (browser.indexOf(mobileAgent[i])!=-1){
+						isMobile = true;
+						break;
+						
+					} 
+				}
+				return isMobile;
+				
+			}
+
+		</script>
+		
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+  			var hm = document.createElement("script");
+  			hm.src = "https://hm.baidu.com/hm.js?dc703ab8ed683482a1021aabc6144201";
+  			var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+			})();
+			
+		</script>
+		
+</head><!--/head-->
+
+<body id="home" class="homepage">
+	<div id="rightDiv" style="width:56px;right:0px;background: white;position: fixed;top:335px;right:2px;z-index:999;">
+		<div style="width:100%;position: relative;">
+			<div class="hoverFontb" attrstr="div1" style="cursor:pointer;width: 58px;height:56px;padding:10px;border: 1px rgb(242,242,242) solid;border-top:0px;position: relative;">
+				<a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=2124699507&website=www.ghplat.com"><img src="images/front/online.png" /></a>
+			</div>
+			<div class="div1" style="position: absolute;top:0px;right:55px;width:140px;height:57px;background: white;display:none;">
+				<div style="float:left;padding:15px;margin-left:-3px;margin-top:2px;"><img src="images/front/smile.png" width="25px" /></div>
+				<div style="float:left;color:#333333;font-size:14px;line-height: 56px;margin-left:-4px;">点击我咨询哦</div>
+				<div class="div" style="float:left;  font-size: 0;line-height: 0;border-width: 10px;border-color: white;border-right-width: 0; border-style: dashed;border-left-style: solid;border-top-color: transparent;border-bottom-color: transparent;position: absolute;top:19px;right:-10px;  "></div>
+			</div>
+			<div class="hoverFontb" attrstr="div2" style="cursor:pointer;width: 58px;height:56px;padding:10px;border: 1px rgb(242,242,242) solid;border-top:0px;border-bottom: 0px;">
+				<img src="images/front/mail.png" />
+			</div>
+			<div class="div2" style="position: absolute;top:58px;right:55px;width:140px;height:57px;background: white;display:none;">
+				<div style="width:100%;line-height: 57px;">
+					<a href="mailto:media@ghplat.com"><img src="images/front/email.png" style="margin-top:15px;width:93%;margin-left:4%;" /></a>
+				</div>
+				<div class="div" style="float:left;  font-size: 0;line-height: 0;border-width: 10px;border-color: white;border-right-width: 0; border-style: dashed;border-left-style: solid;border-top-color: transparent;border-bottom-color: transparent;position: absolute;top:19px;right:-10px;  "></div>
+			</div>
+			<div class="hoverFontb" attrstr="div3" style="cursor:pointer;width: 58px;height:56px;padding:10px;border: 1px rgb(242,242,242) solid;border-top:0px;"><img src="images/front/QR-Code.png" /></div>
+			<div class="div3" style="position: absolute;top:116px;right:55px;width:140px;height:160px;background: white;display:none;">
+				<div style="width:100%;padding:10px;padding-bottom: 0px;">
+					<img src="images/front/erweima.jpg" style="width:120px;" />
+				</div>
+				<div style="width:100%;color:#333333;font-size:14px;text-align: center;padding-bottom: 15px;">扫一扫关注官方微信</div>
+				<div class="div" style="float:left;  font-size: 0;line-height: 0;border-width: 10px;border-color: white;border-right-width: 0; border-style: dashed;border-left-style: solid;border-top-color: transparent;border-bottom-color: transparent;position: absolute;top:19px;right:-10px;  "></div>
+			</div>
+			<div onclick="$('html').scrollTop(0);$('body').scrollTop(0);" style="cursor:pointer;width: 58px;height:57px;padding:20px;border: 1px rgb(242,242,242) solid;border-top:0px;"><img src="images/front/top.png" /></div>
+		</div>
+	</div>
+	
+    <header id="header">
+        <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+                </div>
+				
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="scroll active"><a href="#cta">IP·City</a></li>
+                        <li class="scroll"><a href="#services">我们的支持</a></li>
+                        <li class="scroll"><a href="#portfolio">孵化平台</a></li>
+                        <li class="scroll"><a href="#pricing">申请入驻</a></li>
+                        <li class="scroll"><a href="#about">联系我们</a></li>
+                        <li class="scroll"><a href="http://www.ghplat.com" target="_blank">勾画互动</a></li>                      
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->
+
+		<section id="cta" class="wow fadeIn">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h2>ID到IP的完美转身，成就IP新潮流</h2>
+                    <p>ID是标签 IP是标杆</p>
+                </div>
+                <div class="col-sm-3 text-right">
+                    <a class="btn btn-primary btn-lg" href="#get-in-touch">加入我们</a>
+                </div>
+            </div>
+        </div>
+    </section><!--/#cta-->
+
+		<section id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">IP·City</h2>
+                <p class="text-center wow fadeInDown">是由上海勾画网络科技有限公司（简称勾画互动）运营和管理的互联网新内容产业孵化平台。</p>
+                <br>
+                <p class="text-center wow fadeInDown"><a class="btn btn-primary btn-lg" href="#about">详情咨询</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta2">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms"><span>互联网新内容产业</span>孵化平台</h2>
+                <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">在原先孵化器的基础上发展升级而来的全新的互联网新内容孵化模式。<br>通过集中孵化，联合运营，全网推广，形成优质内容集群，打造具有影响力的头部IP。</p>
+                <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms"><a class="btn btn-primary btn-lg" href="#about">详情咨询</a></p>
+                <img class="img-responsive wow fadeIn" src="images/cta2/cta2-img.png" alt="" data-wow-duration="300ms" data-wow-delay="300ms">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" >
+        <div class="container">
+
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">我们的支持</h2>
+                <p class="text-center wow fadeInDown">IP·City提供的服务支持。</p>
+            </div>
+
+            <div class="row">
+                <div class="features">
+                    <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">
+                        <div class="media service-box">
+                            <div class="pull-left">
+                                <i class="fa fa-line-chart"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">流量支持</h4>
+                                <p>Traffic Support</p>
+                            </div>
+                        </div>
+                    </div><!--/.col-md-4-->
+
+                    <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">
+                        <div class="media service-box">
+                            <div class="pull-left">
+                                <i class="fa fa-cogs"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">服务支持</h4>
+                                <p>Service Support</p>
+                            </div>
+                        </div>
+                    </div><!--/.col-md-4-->
+
+                    <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms">
+                        <div class="media service-box">
+                            <div class="pull-left">
+                                <i class="fa fa-bullhorn"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">推广支持</h4>
+                                <p>Promotion Support</p>
+                            </div>
+                        </div>
+                    </div><!--/.col-md-4-->
+                
+                    <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                        <div class="media service-box">
+                            <div class="pull-left">
+                                <i class="fa fa-bar-chart"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">运营支持</h4>
+                                <p>Operation Support</p>
+                            </div>
+                        </div>
+                    </div><!--/.col-md-4-->
+
+                    <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">
+                        <div class="media service-box">
+                            <div class="pull-left">
+                                <i class="fa fa-language"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">办公支持</h4>
+                                <p>Office Support</p>
+                            </div>
+                        </div>
+                    </div><!--/.col-md-4-->
+                    
+                    <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="500ms">
+                        <div class="media service-box">
+                            <div class="pull-left">
+                                <i class="fa fa-graduation-cap"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">培训支持</h4>
+                                <p>Train Support</p>
+                            </div>
+                        </div>
+                    </div><!--/.col-md-4-->
+                    
+                    <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="500ms">
+                        <div class="media service-box">
+                            <div class="pull-left">
+                                <i class="fa fa-money"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">资金支持</h4>
+                                <p>Money Support</p>
+                            </div>
+                        </div>
+                    </div><!--/.col-md-4-->
+                   	
+                   	<div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="500ms">
+                        <div class="media service-box">
+                            <div class="pull-left">
+                                <i class="fa fa-bullseye"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">商业变现</h4>
+                                <p>Commercial Realization</p>
+                            </div>
+                        </div>
+                    </div><!--/.col-md-4-->
+                   	
+                </div>
+            </div><!--/.row-->    
+        </div><!--/.container-->
+    </section><!--/#services-->
+
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">我们的孵化平台</h2>
+                <p class="text-center wow fadeInDown">我们拥有图文、短视频、音频、主播等<br> 总共四大类，十二小类等多个栏目。</p>
+            </div>
+
+            <div class="text-center">
+                <ul class="portfolio-filter">
+                    <li><a class="active" href="#" data-filter="*">所有</a></li>
+                    <li><a href="#" data-filter=".creative">环境</a></li>
+                    <li><a href="#" data-filter=".corporate">公共区域</a></li>
+                    <li><a href="#" data-filter=".portfolio">办公区域</a></li>
+                </ul><!--/#portfolio-filter-->
+            </div>
+
+            <div class="portfolio-items">
+
+                <div class="portfolio-item creative">
+                    <div class="portfolio-item-inner">
+                    		<img class="img-responsive" src="images/portfolio/0101.jpg" alt="">
+                        <div class="portfolio-info">
+                            <h3>环境</h3>
+                            Environment
+                            <a class="preview" href="images/portfolio/0101.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+                
+                <div class="portfolio-item creative">
+                    <div class="portfolio-item-inner">
+                    		<img class="img-responsive" src="images/portfolio/0102.jpg" alt="">
+                        <div class="portfolio-info">
+                            <h3>环境</h3>
+                            Environment
+                            <a class="preview" href="images/portfolio/0102.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+                
+                <div class="portfolio-item creative">
+                    <div class="portfolio-item-inner">
+                    		<img class="img-responsive" src="images/portfolio/0103.jpg" alt="">
+                        <div class="portfolio-info">
+                            <h3>环境</h3>
+                            Environment
+                            <a class="preview" href="images/portfolio/0103.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+                
+                <div class="portfolio-item corporate">
+                    <div class="portfolio-item-inner">
+                    		<img class="img-responsive" src="images/portfolio/0201.jpg" alt="">
+                        <div class="portfolio-info">
+                            <h3>公共区域</h3>
+                            Public Space
+                            <a class="preview" href="images/portfolio/0201.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item corporate">
+                    <div class="portfolio-item-inner">
+                        <img class="img-responsive" src="images/portfolio/0202.jpg" alt="">
+                        <div class="portfolio-info">
+                            <h3>公共区域</h3>
+                            Public Space
+                            <a class="preview" href="images/portfolio/0202.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+                
+                <div class="portfolio-item corporate">
+                    <div class="portfolio-item-inner">
+                        <img class="img-responsive" src="images/portfolio/0203.jpg" alt="">
+                        <div class="portfolio-info">
+                            <h3>公共区域</h3>
+                            Public Space
+                            <a class="preview" href="images/portfolio/0203.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+                
+                <div class="portfolio-item corporate">
+                    <div class="portfolio-item-inner">
+                        <img class="img-responsive" src="images/portfolio/0204.jpg" alt="">
+                        <div class="portfolio-info">
+                            <h3>公共区域</h3>
+                            Public Space
+                            <a class="preview" href="images/portfolio/0204.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+                
+                 <div class="portfolio-item portfolio">
+                    <div class="portfolio-item-inner">
+                    		<img class="img-responsive" src="images/portfolio/0301.jpg" alt="">
+                        <div class="portfolio-info">
+                            <h3>办公区域</h3>
+                            Work Space
+                            <a class="preview" href="images/portfolio/0301.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item portfolio">
+                    <div class="portfolio-item-inner">
+                        <img class="img-responsive" src="images/portfolio/0302.jpg" alt="">
+                        <div class="portfolio-info">
+                            <h3>办公区域</h3>
+                            Work Space
+                            <a class="preview" href="images/portfolio/0302.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+            </div>
+        </div><!--/.container-->
+    </section><!--/#portfolio-->
+
+    <section id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">申请条件</h2>
+                <p class="text-center wow fadeInDown">IP·City孵化平台申请条件。</p>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="0ms">
+                        <ul class="pricing">
+                            <li class="plan-header">
+                                <div class="price-duration">
+                                    <span class="price">
+                                        1
+                                    </span>
+                                </div>
+
+                                <div class="plan-name">
+                                    人格魅力
+                                </div>
+                            </li>
+                            <li> 有一定粉丝基础</li>
+                            <li> 内容有人格化属性</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="200ms">
+                        <ul class="pricing featured">
+                            <li class="plan-header">
+                                <div class="price-duration">
+                                    <span class="price">
+                                        2
+                                    </span>
+                                </div>
+
+                                <div class="plan-name">
+                                    创作能力
+                                </div>
+                            </li>
+                            <li> 在某一领域有特长</li>
+                            <li> 且有持续生产内容的能力</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="400ms">
+                        <ul class="pricing">
+                            <li class="plan-header">
+                                <div class="price-duration">
+                                    <span class="price">
+                                        3
+                                    </span>
+                                </div>
+
+                                <div class="plan-name">
+                                    个性化
+                                </div>
+                            </li>
+                            <li> 内容极富个性化</li>
+                            <li> 对所在内容领域有理解和判断</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="600ms">
+                        <ul class="pricing featured">
+                            <li class="plan-header">
+                                <div class="price-duration">
+                                    <span class="price">
+                                        4
+                                    </span>
+                                </div>
+
+                                <div class="plan-name">
+                                    商业价值
+                                </div>
+                            </li>
+                            <li> 有商业进取精神</li>
+                            <li> 有意愿进行商业变现</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#pricing-->
+
+    <section id="work-process">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">申请流程</h2>
+                <p class="text-center wow fadeInDown">IP·City孵化平台申请流程。</p>
+            </div>
+
+            <div class="row text-center">
+                <div class="col-md-2 col-md-4 col-xs-6">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+                        <div class="icon-circle">
+                            <span>1</span>
+                            <i class="fa fa-search fa-2x"></i>
+                        </div>
+                        <h3>申请/发掘</h3>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-4 col-xs-6">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms">
+                        <div class="icon-circle">
+                            <span>2</span>
+                            <i class="fa fa-address-card-o fa-2x"></i>
+                        </div>
+                        <h3>提供材料</h3>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-4 col-xs-6">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="200ms">
+                        <div class="icon-circle">
+                            <span>3</span>
+                            <i class="fa fa-pencil-square-o fa-2x"></i>
+                        </div>
+                        <h3>项目组初审</h3>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-4 col-xs-6">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="300ms">
+                        <div class="icon-circle">
+                            <span>4</span>
+                            <i class="fa fa-coffee fa-2x"></i>
+                        </div>
+                        <h3>专家组评审</h3>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-4 col-xs-6">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
+                        <div class="icon-circle">
+                            <span>5</span>
+                            <i class="fa fa-briefcase fa-2x"></i>
+                        </div>
+                        <h3>加入孵化平台</h3>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-4 col-xs-6">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">
+                        <div class="icon-circle">
+                            <span>6</span>
+                            <i class="fa fa-flag-checkered fa-2x"></i>
+                        </div>
+                        <h3>期满评估</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#work-process-->
+
+    <section id="get-in-touch">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">加入我们</h2>
+                <p class="text-center wow fadeInDown">申请加入可在线提交联系方式与作品链接，我们会在第一时间与你联系。 <br> 问题咨询：media@ghplat.com <br> QQ：2124699507</p>
+            </div>
+        </div>
+    </section><!--/#get-in-touch-->
+
+
+    <section id="contact">
+        <div id="map" style="height:650px" ><img src="images/main-contract.png"></div>
+        <div class="container-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-8">
+                        <div class="contact-form">
+                            <h3>IP·City入驻申请</h3>
+
+                            <form id="main-contact-form" name="contact-form" method="post" action="#">
+                                <div class="form-group">
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="姓名" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="mobile" name="mobile" class="form-control" placeholder="手机" maxlength="11" pattern="^1[3|4|5|7|8][0-9]{9}" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="demo" name="demo" class="form-control" placeholder="作品在线地址 请以http://开头输入" pattern="^http://" required>
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="message" name="message" class="form-control" rows="8" placeholder="留言"></textarea>
+                                </div>
+                                <button type="button" class="btn btn-primary" onclick="applyfor()">提交</button>&nbsp;&nbsp;
+                                <button type="button" class="btn btn-primary" onclick="window.location='#pricing'">了解入驻条件</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#bottom-->
+		
+		    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">联系我们</h2>
+                <p class="text-center wow fadeInDown">请记住我们的网址 www.ipcity.club</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 wow fadeInLeft">
+                    <!--<img class="img-responsive" src="images/main-feature.png" alt="">-->
+                    <div id="allmap" style="width:100%;height:360px;"></div>
+                </div>
+                <div class="col-sm-6">
+                		<!--
+                    <div class="media service-box wow fadeInRight">
+                        <div class="pull-left">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">地址</h4>
+                            <p>中国（上海）</p>
+   
+                        </div>
+                    </div>
+										-->
+										
+                    <div class="media service-box wow fadeInRight">
+                        <div class="pull-left">
+                            <i class="fa fa-cubes"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">发行及BD合作</h4>
+                            <p>如果您有发行合作请联系 Email: bd@ghplat.com<br>QQ：1374820866</p>
+                        </div>
+                    </div>
+
+                    <div class="media service-box wow fadeInRight">
+                        <div class="pull-left">
+                            <i class="fa fa-paper-plane"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">媒介合作</h4>
+                            <p>如果您有媒介合作请联系 Email: media@ghplat.com<br>QQ：2124699507</p>
+                        </div>
+                    </div>
+
+                    <div class="media service-box wow fadeInRight">
+                        <div class="pull-left">
+                            <i class="fa fa-handshake-o"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">商业合作</h4>
+                            <p>如果您有商业合作请联系 Email: sales@ghplat.com<br>QQ：1728565652</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#about-->
+    
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    版权所有© 2016 <a href="http://www.ghplat.com" target="_blank">勾画互动</a> 沪ICP备 16039901号
+                </div>
+                <div class="col-sm-6">
+                    <ul class="social-icons">
+                        <li><a href="tencent://message/?uin=2124699507&Site=IP·City&Menu=yes"><i class="fa fa-qq"></i></a></li>
+                        <a class="preview" href="images/qrcode_for_gh_f35c2bcc4aef_258.jpg" rel="prettyPhoto"><i class="fa fa-weixin"></i></a>
+                        <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+		
+		<script type="text/javascript">
+			var map = new BMap.Map("allmap"); 
+			var point = new BMap.Point(121.487899,31.249162);         
+			map.centerAndZoom(point, 12);
+			var local = new BMap.LocalSearch(map, {
+				renderOptions:{map: map}
+			});
+			local.search("上海勾画网络科技有限公司");
+		</script>
+		
+</body>
+</html>
